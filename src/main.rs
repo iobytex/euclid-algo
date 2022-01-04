@@ -7,7 +7,7 @@ fn main() -> Result<(), Box<dyn std::error::Error>>  {
 
    //pass the arguments to euclid function
   let (r,rn) =  euclid(a,b);
-   println!("{} {}",r,rn);
+   println!("{} : Euclidean Algorithm => {}",r,rn);
 
    Ok(())
 }
