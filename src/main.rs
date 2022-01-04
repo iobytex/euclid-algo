@@ -1,19 +1,15 @@
-use std::io;
 
-fn main()  {
-   ///Accept two numbers from the cli  i.e. cargo run -- 7496 2464
+fn main() -> Result<(), Box<dyn std::error::Error>>  {
+   //Accept two numbers from the cli  i.e. cargo run -- 7496 2464
    let mut argument = std::env::args().skip(1);
-   let a = argument.next().unwrap().parse::<isize>().unwrap();
-   let b = argument.next().unwrap().parse::<isize>().unwrap();
+   let a = argument.next().unwrap().parse::<isize>()?;
+   let b = argument.next().unwrap().parse::<isize>()?;
 
-   //check if a is greater than b based on the euclid algorithm
-   if a > b {
-      //pass the argument to euclid function
-     let (r,rn) =  euclid(a,b);
-      println!("{} {}",r,rn);
-   }else{
-      panic!("the left value has to be greater then the right value")
-   }
+   //pass the arguments to euclid function
+  let (r,rn) =  euclid(a,b);
+   println!("{} {}",r,rn);
+
+   Ok(())
 }
 
 //we accept the value by copy since it is a known size
